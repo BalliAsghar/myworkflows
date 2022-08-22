@@ -2,9 +2,9 @@ name: Deploy Backend image
 on:
   workflow_call:
     secrets:
-     DOCKER_USER:
+     dockeruser:
       required: true
-     DOCKER_TOKEN:
+     dockertoken:
       required: true
       
 jobs:
@@ -18,8 +18,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+          username: ${{ secrets.dockeruser }}
+          password: ${{ secrets.dockertoken }}
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
