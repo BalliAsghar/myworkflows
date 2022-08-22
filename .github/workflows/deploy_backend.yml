@@ -1,14 +1,11 @@
 name: Deploy Backend image
 on:
   workflow_call:
-   inputs:
-      docker_username:
-       required: true
-       type: string
-      docker_token:
-       required: true
-       type: string
-       
+    secrets:
+     DOCKER_USER:
+      required: true
+     DOCKER_TOKEN:
+      required: true
       
 jobs:
   docker:
